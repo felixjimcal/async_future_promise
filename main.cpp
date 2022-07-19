@@ -34,9 +34,7 @@ int main() {
     // Whereas a FUTURE is for reading that returned state.
     std::promise<int> promise;
     std::future<int> future = promise.get_future();
-    // calculate the result in a separat thread
-    // promise.set_value(square(5));
-    std::thread prodThread(square, 5);
+    promise.set_value(square(5));
     std::cout << "result is " << future.get() << '\n';
 
     return EXIT_SUCCESS;
